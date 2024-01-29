@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import bgrest from '../images/bgrest.svg';
+---
+<article>
+    
+  
+    <footer>
+     
+        <div class="logo">
+            <Image src={bgrest} alt='logo' width="374" height="68" ;>
+          </div>
+     
+        <p > © 2024 BgResturants. All rights reserved.</p>
+      <ol>
+        <ul>CATEGORIES</ul>
+        <ul>Category-1</ul>
+        <ul>Category-2</ul>
+        <ul>Category-3</ul>
+        <ul>Category-4</ul>
+      </ol>
+
+      <ol>
+        <ul>Contacts</ul>
+        <ul>0878887559</ul>
+        <ul>Policy</ul>
+        <ul>Instagram</ul>
+        <ul>Facebook</ul>
+      </ol>
+
+    </footer>
+  </article>
+  
+
+
+
+<style>
+                
+
+    article {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #7c5614;
+  color: #fff;
+  
+}
+          
+    .logo img {
+     max-width: 100px; /* Set the max width for your logo */
+    }
+
+
+
+
+</style>
