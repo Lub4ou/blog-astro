@@ -1,45 +1,41 @@
 ---
-import { Image } from 'astro:assets';
-import bgrest from '../images/bgrest.svg';
+import { Image } from "astro:assets";
+import bgrest from "../images/bgrest.svg";
 ---
 
 <header>
-    <div class="logo">
-      <Image src={bgrest} alt='logo' width="374" height="68";>
-    </div>
+  <div class="logo">
+    <Image src={bgrest} alt="logo" width="374" height="68" ; />
     <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
+      <slot />
     </nav>
-  </header>
-  
+  </div>
+
   <style>
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px;
-      background-color: #1F0D07;
+      background-color: #f5eee2;
     }
-  
+
     .logo img {
       max-width: 100px; /* Set the max width for your logo */
     }
-  
+
     nav ul {
       list-style-type: none;
       display: flex;
     }
-  
+
     nav li {
       margin-right: 15px;
     }
-  
+
     nav a {
       text-decoration: none;
       color: #ffffff;
     }
   </style>
+</header>

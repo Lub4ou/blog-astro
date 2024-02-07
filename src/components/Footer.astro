@@ -1,62 +1,101 @@
 ---
-import { Image } from 'astro:assets';
-import bgrest from '../images/bgrest.svg';
+import { Image } from "astro:assets";
+import bgrest from "../images/bgrest.svg";
+import isnstagramLogo from "../images/instagramLogo.svg";
+import facebooklogo from "../images/facebooklogo.svg";
+import { categoryList } from "../quearies/category.js";
 ---
-<article>
+
+<footer>
+  
+  <div class="links-wrapper">
+    <div class="logo">
+      <Image src={bgrest} alt="logo" width="80" height="80" ; />
+    </div>
+
+
+    <div class="footer-categories">
+      <div class="categories">
+          {
+              categoryList.categories.data.map(({attributes}) => {
+                return(
+      <a class="category-button" href={`/categories/${attributes.slug}`}>{attributes.name}</a>
+      )
+              })
+          }
+        </div>
+        
+  </div>
+
+    <div class="contacts">
+      <ul>
+        <h3>КОНТАКТИ:</h3>
+        <li>0878887559</li>
+        <li>Политика за поверителност</li>
+        <Image src={isnstagramLogo} alt="insta" width="50" height="52"; />
+        <Image src={facebooklogo} alt="face" width="40" height="51"; />
+      </ul>
+
+     
+    </div>
     
-  
-    <footer>
-     
-        <div class="logo">
-            <Image src={bgrest} alt='logo' width="374" height="68" ;>
-          </div>
-     
-        <p > © 2024 BgResturants. All rights reserved.</p>
-      <ol>
-        <ul>CATEGORIES</ul>
-        <ul>Category-1</ul>
-        <ul>Category-2</ul>
-        <ul>Category-3</ul>
-        <ul>Category-4</ul>
-      </ol>
+  </div>
 
-      <ol>
-        <ul>Contacts</ul>
-        <ul>0878887559</ul>
-        <ul>Policy</ul>
-        <ul>Instagram</ul>
-        <ul>Facebook</ul>
-      </ol>
+  <div class="rights">
+    <h2>© 2024 BgResturants. Всички права запазени. Created by L4</h2>
+  </div>
 
-    </footer>
-  </article>
-  
-
-
+</footer>
 
 <style>
-                
+  footer {
+    display: flex;
+    background-color: #F5EEE2;
+    color: #000000;
+    width: 100%;
+    flex-direction: column;
+  }
 
-    article {
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
-footer {
+  .links-wrapper{
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #7c5614;
-  color: #fff;
+  justify-content: space-around
+  }
+
+
+  .rights {
+    /* display: flex;
+    text-align:center
+    margin: 10%;
+    font-size: 50%; */
+    position: absolute;
+    bottom: 1%;                       /towa se mesti/
+    left: 50%;
+    transform: translateX(-30%);
+  }
+
+  .logo {
+    display: flex;
+    margin: 4%;
+  }
+
+/* ??? */
+ 
+  .categories{
+    display: flex;
+    flex-direction: column; /* Променено от "row" на "column" */
+    justify-content: center;
+    margin: 50%;
+    font-size: 100%;
+    
   
 }
-          
-    .logo img {
-     max-width: 100px; /* Set the max width for your logo */
-    }
+/* ??? */
 
-
+  .contacts {
+    display: flex;
+    margin: 1%;
+    font-size: 100%;
+  }
 
 
 </style>
