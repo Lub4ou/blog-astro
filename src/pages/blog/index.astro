@@ -9,11 +9,12 @@ import BlackBar from "../../components/BlackBar.astro";
 import SEOcontent from "../../components/SEOcontent.astro";
 import OpinionSlider from "../../components/OpinionSlider.astro";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import InfinityHorizontalSlider from "../../components/InfinityHorizontalSlider.astro";
 ---
 
 <DefaultLayout>
     <CategoryBar />
-
+<InfinityHorizontalSlider></InfinityHorizontalSlider>
     <div style="display: flex;" ,>
         {
             articlesList.posts.data.map((item) => (
@@ -25,8 +26,9 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro";
             ))
         }
     </div>
-
-    <BlackBar />
     <OpinionSlider />
+    <BlackBar />
+   
     <SEOcontent />
 </DefaultLayout>
+
