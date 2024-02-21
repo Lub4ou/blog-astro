@@ -24,6 +24,7 @@ const articleData = Astro.props;
   />
 
   <h1>{articleData.name}</h1>
+  
   <div set:html={marked.parse(articleData.content)}>
 
   </div>

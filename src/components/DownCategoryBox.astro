@@ -1,0 +1,85 @@
+---
+import SingleArticle from "../components/SingleArticle.astro";
+import { articlesList } from "../quearies/articles.js";
+import CategoryArticlesPosts from "../components/DownCategoryBoxPosts.astro";
+
+const categoryData = Astro.props;
+---
+
+<style>
+    .grid-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        width: 912px;
+        gap: 10px;
+        margin-left: 9vw;
+        margin-top: 50px;
+    }
+
+    .wrap-category1 {
+        grid-area: 1 / 1 / 4 / 2;
+        width: 451px;
+        border-top: 3px solid gray;
+        padding-top: 10px;
+        color: black;
+        
+    }
+    .wrap-category2 {
+        grid-area: 1 / 2 / 4 / 3;
+        width: 451px;
+        border-top: 3px solid gray;
+        padding-top: 10px;
+    }
+
+    .article__box {
+        display: grid;
+        width: 451px;
+        height: 912px;
+        margin-bottom: 30px;
+        margin-top: 10%;
+        margin-left: 8%;
+        justify-items: center;
+        gap: 10px;
+    }
+
+    .line {
+        color: black;
+        border-bottom: solid 3px #b1a8a8;
+        padding: 1%;
+        width: 1360%;
+        color: #9ca5b4;
+        font-weight: bolder;
+    }
+
+    .ad {
+        width: 500px;
+        height: 50px;
+        padding: 10px;
+        border: 2px solid gray;
+        margin-top: 3%;
+        margin-left: 350px;
+        text-align: center;
+    }
+</style>
+
+<div class="line">
+    
+</div>
+
+<div class="ad">
+    <p>Реклама</p>
+</div>
+
+
+<div class="grid-wrap">
+    <div class="article__box wrap-category1">
+        <CategoryArticlesPosts articlesCount={3} categoryId="1" />
+       
+    </div>
+    <div class="article__box wrap-category2">
+        <CategoryArticlesPosts articlesCount={3} categoryId="2" />
+    </div>
+</div>

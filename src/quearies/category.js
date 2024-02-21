@@ -1,27 +1,27 @@
 import GraphQL from "../scripts/graphql.js";
 
 export const categoryList = await GraphQL.query(`
-query{
+
+query {
   categories{
     data{
+      id
       attributes{
-        slug
-            name
-        bottomText
-        image{
-          data{
-            attributes{
-              alternativeText
-              url
-            }
-          }
-        }
         posts{
           data{
             id
           }
         }
-        
+        name
+        slug
+        image{
+          data{
+            attributes{
+              url
+              alternativeText
+            }
+          }
+        }
       }
     }
   }

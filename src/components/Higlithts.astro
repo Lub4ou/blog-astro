@@ -33,34 +33,51 @@ let counter = 0;
     .higlitht {
         margin-top: 90px;
         width: 100vw;
-        display: flex;
+        /* display: flex; */
+       margin-right: 10%;
     }
 
 
+
+    .line{
+    color: black;
+    border-bottom: solid 3px #b1a8a8;
+    margin-left: 280%;
+    margin-top: 20px;
+    padding: 1%;
+    width: 1360%;
+    color: #9ca5b4;
+    font-weight: bolder;
+   
+}
 </style>
 
 
 
-    <div class="higlitht">
-        
-        <div class="article-higlithts">
-        
-        {
-            articlesList.posts.data.map((item) => {
-                if (counter < 6) {
-                    counter++;
-                    return (
-                        <div class="article-item">
-                            <SingleArticle
-                                url={item.attributes.slug}
-                                image={item.attributes.image}
-                                name={item.attributes.name}
-                            />
-                            </div>
-                    );
-                }
-            })
-        }
-    </div>
+<div>
+<div class="line">
+<p>Акценти</p>
+</div>
 </div>
 
+<div class="higlitht">
+        <div class="article-higlithts">
+            {
+                articlesList.posts.data.map((item) => {
+                    if (counter < 6) {
+                        counter++;
+                        return (
+                            <div class="article-item">
+                                <SingleArticle
+                                    url={item.attributes.slug}
+                                    image={item.attributes.image}
+                                    name={item.attributes.name}
+                                />
+                            </div>
+                        );
+                    }
+                })
+            }
+        </div>
+    </div>
+</div>

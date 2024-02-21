@@ -12,12 +12,15 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import Higlihts from "../../components/Higlithts.astro";
 import Lastest from "../../components/Lastest.astro";
 import InfinityHorizontalSlider from "../../components/InfinityHorizontalSlider.astro";
+import DownCategoryBox from "../../components/DownCategoryBox.astro";
 ---
 
 <style>
     .latest-body {
         display: flex;
         justify-content: right;
+        margin-right: 4%;
+        margin-top: 3%;
     }
 </style>
 <DefaultLayout>
@@ -34,12 +37,13 @@ import InfinityHorizontalSlider from "../../components/InfinityHorizontalSlider.
             ))
         }
     </div> -->
-   
+
     <div class="latest-body">
         <Higlihts />
         <Lastest />
-        
     </div>
+    <DownCategoryBox />
+
     <OpinionSlider />
     <BlackBar />
     <SEOcontent />
