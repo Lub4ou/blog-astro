@@ -2,7 +2,7 @@
 import "@splidejs/splide/css";
 ---
 
-<section id="test" class="splide kjh" aria-label="Splide Basic HTML Example">
+<section id="test" class="splide opinion_slide" aria-label="Splide Basic HTML Example">
   <div class="splide__track">
   <div class="userdiv"> <h2>Отзиви от потребителите</h2></div>
     <ul class="splide__list">
@@ -71,7 +71,7 @@ import "@splidejs/splide/css";
     background-color: #F5EEE2;
     width: 100%;
     
-    padding: 6%;
+    padding: 4%;
   }
 
   .splide__list {
@@ -88,7 +88,7 @@ import "@splidejs/splide/css";
   import Splide from "@splidejs/splide";
   document.addEventListener("DOMContentLoaded", function () {
     // let splide = new Splide(".splide");
-    let splide = new Splide(".splide", {
+    let splide = new Splide(".opinion_slide", {
       perPage: 3,
       perMove: 1,
     });

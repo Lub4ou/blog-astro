@@ -4,8 +4,6 @@ import { Image } from "astro:assets";
 import { categoryList } from "../quearies/category.js";
 ---
 
-
-
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -14,40 +12,59 @@ import { categoryList } from "../quearies/category.js";
     }
 
     .category-bar {
-        background-color: #1F0D07;
+        background-color: #1f0d07;
         display: flex;
         justify-content: space-around;
-        align-items:center;
+        align-items: center;
         height: 50px;
         color: #fff;
+        
     }
 
     .category-button {
-        color: #eeeeee;
+        /* color: #eeeeee;
         padding: 80px;               /Moving/ 
-       
+        text-decoration: none; */
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        margin-right: 5vw;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+        overflow: hidden;
     }
 
-    /* .category-button:hover {
+    .category-button:hover {
         background-color: #555;
         border-radius: 9%;
         
-    } */
+    }
 
     .category-button:hover {
-  font-size: 1.1em; /* Промяна на размера на шрифта */
-}
+        /* font-size: 1.1em; Промяна на размера на шрифта */
+        
+    }
+
+    @media screen (max-width: 1216x;);
 </style>
 
 <div class="category-bar">
     <div class="nav">
         {
-            categoryList.categories.data.map(({attributes}) => {
-              return(
-    <a class="category-button" href={`/categories/${attributes.slug}`}>{attributes.name}</a>
-    )
+            categoryList.categories.data.map(({ attributes }) => {
+                return (
+                    <a
+                        class="category-button"
+                        href={`/categories/${attributes.slug}`}
+                    >
+                        {attributes.name}
+                    </a>
+                );
             })
         }
-      </div>
-      
+    </div>
 </div>
+

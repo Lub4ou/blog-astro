@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { articlesList } from "../../quearies/articles.js";
 import { Image } from "astro:assets";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { marked } from 'marked';
 
 export const getStaticPaths = (async () => {
   return articlesList.posts.data.map(({ attributes }) => ({
@@ -23,4 +24,8 @@ const articleData = Astro.props;
   />
 
   <h1>{articleData.name}</h1>
+  <div set:html={marked.parse(articleData.content)}>
+
+  </div>
+
 </DefaultLayout>

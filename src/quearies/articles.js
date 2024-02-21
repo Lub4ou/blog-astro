@@ -8,6 +8,7 @@ query {
       attributes {
         slug
         name
+        content
         image {
           data {
             attributes {

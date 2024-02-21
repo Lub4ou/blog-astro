@@ -1,0 +1,66 @@
+---
+import SingleArticle from "../components/SingleArticle.astro";
+import { articlesList } from "../quearies/articles";
+let counter = 0;
+---
+
+<style>
+    .article-higlithts {
+        width: 10vw;
+        display: grid;
+        width: 900px;
+        height: 900px;
+        grid-template-columns: repeat(2, 2fr);
+        grid-template-rows: repeat(3, auto);
+        margin-left: 13%;
+        justify-items: center;
+        gap: 10px;
+    }
+
+    @media screen and (max-width: 550px) {
+        .article-box {
+            display: grid;
+            grid-template-columns: repeat(
+                1,
+                2fr
+            ); /* Create 3 columns each taking 2/3 of available width */
+            grid-template-rows: repeat(3, auto); /* Create 2 rows */
+            justify-items: center;
+            gap: 10px;
+        }
+    }
+
+    .higlitht {
+        margin-top: 90px;
+        width: 100vw;
+        display: flex;
+    }
+
+
+</style>
+
+
+
+    <div class="higlitht">
+        
+        <div class="article-higlithts">
+        
+        {
+            articlesList.posts.data.map((item) => {
+                if (counter < 6) {
+                    counter++;
+                    return (
+                        <div class="article-item">
+                            <SingleArticle
+                                url={item.attributes.slug}
+                                image={item.attributes.image}
+                                name={item.attributes.name}
+                            />
+                            </div>
+                    );
+                }
+            })
+        }
+    </div>
+</div>
+
