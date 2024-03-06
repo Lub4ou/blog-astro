@@ -1,11 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import bgrest from "../images/bgrest.svg";
+import bgrestaurants from "../images/bgrestaurants.svg";
 ---
 
 <header>
   <div class="logo">
-    <Image src={bgrest} alt="logo" width="374" height="68" ; />
+    <a href="/" >
+      <Image src={bgrestaurants} alt="logo" width="374" height="68" ; />
+    </a>
     <nav>
       <slot />
     </nav>
@@ -14,28 +16,20 @@ import bgrest from "../images/bgrest.svg";
   <style>
     header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 20px;
-      /* background-color: #F5EEE2; */
+background-color: #F5EEE2;
+     
+      
     }
 
     .logo img {
-      max-width: 100px; /* Set the max width for your logo */
+      max-width: 100px; 
+      margin-left:13%; 
     }
 
-    nav ul {
-      list-style-type: none;
-      display: flex;
+    @media screen ( max-width: 1216px){
+
     }
 
-    nav li {
-      margin-right: 15px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #ffffff;
-    }
   </style>
 </header>

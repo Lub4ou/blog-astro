@@ -6,78 +6,55 @@ let counter = 0;
 
 <style>
     .article-higlithts {
-        width: 10vw;
+        /* width: 10%; */
         display: grid;
         width: 900px;
-        height: 900px;
+        height: 800px;
         grid-template-columns: repeat(2, 2fr);
         grid-template-rows: repeat(3, auto);
-        margin-left: 13%;
+        /* margin-left: 13%; */
         justify-items: center;
-        gap: 10px;
+        gap: 8px;
     }
 
-    @media screen and (max-width: 550px) {
-        .article-box {
-            display: grid;
-            grid-template-columns: repeat(
-                1,
-                2fr
-            ); /* Create 3 columns each taking 2/3 of available width */
-            grid-template-rows: repeat(3, auto); /* Create 2 rows */
-            justify-items: center;
-            gap: 10px;
-        }
-    }
 
-    .higlitht {
-        margin-top: 90px;
-        width: 100vw;
+
+    .higliht {
+        margin-top: 20px;
         /* display: flex; */
-       margin-right: 10%;
+        /* margin-right: 10%; */
     }
 
-
-
-    .line{
-    color: black;
-    border-bottom: solid 3px #b1a8a8;
-    margin-left: 280%;
-    margin-top: 20px;
-    padding: 1%;
-    width: 1360%;
-    color: #9ca5b4;
-    font-weight: bolder;
-   
-}
+    .line {
+        border-bottom: solid 3px black;
+        margin-bottom: 3%;
+        padding: 1%;
+    }
 </style>
 
 
-
-<div>
-<div class="line">
-<p>Акценти</p>
-</div>
-</div>
-
-<div class="higlitht">
-        <div class="article-higlithts">
-            {
-                articlesList.posts.data.map((item) => {
-                    if (counter < 6) {
-                        counter++;
-                        return (
-                            <div class="article-item">
-                                <SingleArticle
-                                    url={item.attributes.slug}
-                                    image={item.attributes.image}
-                                    name={item.attributes.name}
-                                />
-                            </div>
-                        );
-                    }
-                })
-            }
+<div class="higliht">
+    <div>
+        <div class="line">
+            <p>Акценти</p>
         </div>
+    </div>
+    <div class="article-higlithts">
+        {
+            articlesList.posts.data.map((item) => {
+                if (counter < 6) {
+                    counter++;
+                    return (
+                        <div class="article-item">
+                            <SingleArticle
+                                url={item.attributes.slug}
+                                image={item.attributes.image}
+                                name={item.attributes.name}
+                            />
+                        </div>
+                    );
+                }
+            })
+        }
     </div>
 </div>

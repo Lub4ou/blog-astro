@@ -14,44 +14,50 @@ const categoryData = Astro.props;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         width: 912px;
-        gap: 10px;
-        margin-left: 9vw;
-        margin-top: 50px;
+  
+     justify-items: center;
+        gap: 5%;
+        /* margin-left: 9vw; */
+        /* margin-top: 50px; */
+/* margin: 0 auto; */
     }
 
     .wrap-category1 {
         grid-area: 1 / 1 / 4 / 2;
         width: 451px;
-        border-top: 3px solid gray;
+        /* border-top: 3px solid gray; */
         padding-top: 10px;
         color: black;
+        justify-items: center;
         
     }
     .wrap-category2 {
         grid-area: 1 / 2 / 4 / 3;
         width: 451px;
-        border-top: 3px solid gray;
+        /* border-top: 3px solid gray; */
         padding-top: 10px;
+        justify-items: center;
     }
 
     .article__box {
         display: grid;
-        width: 451px;
+        width: 100%;451px
         height: 912px;
-        margin-bottom: 30px;
-        margin-top: 10%;
-        margin-left: 8%;
+        margin-bottom: 35px;
+        margin-top: 1px;
+        /* margin-left: 8%; */
         justify-items: center;
         gap: 10px;
     }
 
-    .line {
+    .bigline {
         color: black;
         border-bottom: solid 3px #b1a8a8;
         padding: 1%;
-        width: 1360%;
+      
         color: #9ca5b4;
         font-weight: bolder;
+        margin-bottom: 5%;
     }
 
     .ad {
@@ -59,27 +65,66 @@ const categoryData = Astro.props;
         height: 50px;
         padding: 10px;
         border: 2px solid gray;
-        margin-top: 3%;
-        margin-left: 350px;
+        margin-top: 7%;
+        /* margin-left: 350px; */
         text-align: center;
+        justify-content: left;
+        margin: 0 auto;
     }
+
+    .lines-container {
+        display: flex;
+        justify-content: space-evenly ; Разпределя линиите равномерно
+        width: 100%; /* Ширина на контейнера */
+        margin-top: 3%; /* Отстояние от горната част */
+    }
+
+    .line {
+        border-bottom: 3px solid gray;
+        width: 30%; /* Ширина на всяка линия */
+        padding: 1%;
+        /* margin-right: 5%; */
+    }
+
+    /* @media screen and (max-width: 550px) {
+        .article-box {
+            display: grid;
+            grid-template-columns: repeat(
+                1,
+                2fr
+            ); /* Create 3 columns each taking 2/3 of available width */
+            grid-template-rows: repeat(3, auto); /* Create 2 rows */
+            justify-items: center;
+            gap: 10px;
+        }
+
+    } */
+
+  
 </style>
 
-<div class="line">
-    
-</div>
+<div class="bigline"></div>
 
 <div class="ad">
     <p>Реклама</p>
 </div>
 
-
-<div class="grid-wrap">
-    <div class="article__box wrap-category1">
-        <CategoryArticlesPosts articlesCount={3} categoryId="1" />
-       
-    </div>
-    <div class="article__box wrap-category2">
-        <CategoryArticlesPosts articlesCount={3} categoryId="2" />
-    </div>
+<div class="lines-container">
+    <div class="line"></div>
+    <div class="line"></div>
 </div>
+
+
+
+
+    <div class="grid-wrap">
+      
+        <div class="article__box wrap-category1">
+            <CategoryArticlesPosts articlesCount={3} categoryId="1" />
+           
+        </div>
+        <div class="article__box wrap-category2">
+            <CategoryArticlesPosts articlesCount={3} categoryId="2" />
+        </div>
+    </div>
+

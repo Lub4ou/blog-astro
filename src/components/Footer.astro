@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import bgrest from "../images/bgrest.svg";
+import bgrestaurants from "../images/bgrestaurants.svg";
 import isnstagramLogo from "../images/instagramLogo.svg";
 import facebooklogo from "../images/facebooklogo.svg";
 import { categoryList } from "../quearies/category.js";
@@ -112,10 +113,11 @@ import { categoryList } from "../quearies/category.js";
   footer {
     /* background: linear-gradient(180deg, #F5EEE2 0%, #e3e4e6 100%); */
     color: white;
-    padding: 20px;
+    background-color: #F5EEE2;
+    padding: 1px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    border-top: 2px solid grey;
+    border-top: 2px solid black;
   }
 
   footer ul {
@@ -188,7 +190,10 @@ import { categoryList } from "../quearies/category.js";
 
 <footer>
   <div class="column centered-img">
-    <Image src={bgrest} alt="logo" width="374" height="68" />
+    <a href="/" >
+      <Image src={bgrestaurants} alt="logo" width="374" height="68" />
+    </a>
+   
   </div>
 
   <div class="footer-categories">

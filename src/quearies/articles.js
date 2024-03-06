@@ -9,10 +9,19 @@ query {
         slug
         name
         content
+        date
+        Category{
+          data{
+            attributes{
+              name
+            }
+          }
+        }
         image {
           data {
             attributes {
               url
+            
               alternativeText
             }
           }

@@ -4,6 +4,8 @@ import { articlesList } from "../../quearies/articles.js";
 import { Image } from "astro:assets";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import { marked } from 'marked';
+import Lastest from "../../components/Lastest.astro";
+
 
 export const getStaticPaths = (async () => {
   return articlesList.posts.data.map(({ attributes }) => ({
@@ -15,18 +17,115 @@ export const getStaticPaths = (async () => {
 const articleData = Astro.props;
 ---
 
-<DefaultLayout>
-  <Image
-    src={articleData.image.data.attributes.url}
-    alt={articleData.image.data.attributes.alternativeText || "altvbgh"}
-    width="200"
-    height="200"
-  />
+<style>
+  .div-wrapper{
+    display: flex;
+    justify-content: center;
+  }
+  .image-wrapper{
+    max-width: 35% ;900px
+    max-height: auto ;500px
+  }
 
-  <h1>{articleData.name}</h1>
+  .image-wrapper img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6%;
+    margin-top: 3%;
+  }
+
+  .post-information{
+margin-left: 5%;
+margin-top: 4%;
+
+  }
   
-  <div set:html={marked.parse(articleData.content)}>
+  .line{
+    color: black;
+    border-bottom: solid 3px black;
+    margin-top: 20px;
+    margin-left: 20%;
+    width: 55%;
+    
+   
+}
 
+.content{
+display: grid;
+grid-template-columns: 20% 1fr 25%;
+  margin-bottom: 3%;
+  margin-left:2px ;
+}
+@media screen and (max-width: 1300px) {
+  .content{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    max-width: 1300px;
+  }
+}
+.left-placeholder{
+}
+
+.right-placeholder{
+}
+
+.text-space img{
+  object-fit: cover;
+  width: auto;
+  height: 100%;
+  background-color:#F5EEE2;
+  border-radius: %;
+  margin-top: 2%;
+  padding: 2%;
+}
+
+.lastest{
+  margin-top: 9%;
+  margin-left: 5%;
+  margin-bottom: 3%;
+}
+</style>
+
+<DefaultLayout>
+
+
+  <div class="div-wrapper">
+    
+    <div class="image-wrapper">
+      
+      <Image
+      src={articleData.image.data.attributes.url}
+      alt={articleData.image.data.attributes.alternativeText || "altvbgh"}
+      width="200"
+      height="200"
+      />
+    </div>
+    <div class="post-information">
+      <p>Категория: {articleData.Category.data.attributes.name}</p>
+      <h1>{articleData.name}</h1>
+      <p>Дата на публикуване:  {articleData.date}</p>
+      
+    </div>
   </div>
+  
+  <div>
+
+    <div class="line"></div>
+  </div>
+  <div class="content">
+  <div class="left-placeholder"></div>
+  <div class="text-space" set:html={marked.parse(articleData.content)}></div>
+  <div class="right-placeholder">
+    
+<div class="lastest">
+
+  <Lastest/>
+</div>
+  </div>
+  </div>
+</div>
 
 </DefaultLayout>

@@ -4,16 +4,36 @@ import CategoryBar from "../components/CategoryBar.astro";
 import SEOcontent from "../components/SEOcontent.astro";
 import OpinionSlider from "../components/OpinionSlider.astro";
 import BlackBar from "../components/BlackBar.astro";
+import Higlihts from "../components/Higlithts.astro";
+import Lastest from "../components/Lastest.astro";
+import DownCategoryBox from "../components/DownCategoryBox.astro";
+import InfinityHorizontalSlider from "../components/InfinityHorizontalSlider.astro";
 ---
 
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
-<title>Astro</title>
+<title>Bulgarian Restaurants</title>
+
+<style>
+    .latest-body {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 3%;
+    }
+</style>
+
 <DefaultLayout>
-	<CategoryBar />
-	<OpinionSlider ></OpinionSlider>
-    <BlackBar></BlackBar>
-	<SEOcontent></SEOcontent>
+	
+	<InfinityHorizontalSlider />
+	<div class="latest-body">
+        <Higlihts />
+        <Lastest />
+    </div>
+	<DownCategoryBox />
+	<OpinionSlider/>
+    <BlackBar/>
+	<SEOcontent/>
 </DefaultLayout>

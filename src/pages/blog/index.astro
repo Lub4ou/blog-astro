@@ -1,7 +1,6 @@
 ---
-import SingleArticle from "../../components/SingleArticle.astro";
-import { articlesList } from "../../quearies/articles.js";
-
+// import SingleArticle from "../../components/SingleArticle.astro";
+// import { articlesList } from "../../quearies/articles.js";
 import Header from "../../components/Header.astro";
 import CategoryBar from "../../components/CategoryBar.astro";
 import Footer from "../../components/Footer.astro";
@@ -18,10 +17,12 @@ import DownCategoryBox from "../../components/DownCategoryBox.astro";
 <style>
     .latest-body {
         display: flex;
-        justify-content: right;
-        margin-right: 4%;
+        /* justify-content: right;
+        margin-right: 4%; */
         margin-top: 3%;
+    
     }
+    
 </style>
 <DefaultLayout>
     <CategoryBar />
@@ -40,10 +41,10 @@ import DownCategoryBox from "../../components/DownCategoryBox.astro";
 
     <div class="latest-body">
         <Higlihts />
+        
         <Lastest />
     </div>
     <DownCategoryBox />
-
     <OpinionSlider />
     <BlackBar />
     <SEOcontent />

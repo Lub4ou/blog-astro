@@ -26,6 +26,7 @@
         </div>
 
         <div class="box">
+
             <p>
                 Уебсайтовете за ресторанти събират отзиви и препоръки от
                 посетителите, създавайки общност и предоставяйки ценна
@@ -40,27 +41,39 @@
     .BlackBar {
         display: flex;
         flex-direction: row;
-
+     
         background-color: #000000;
+        /* flex-wrap: wrap; */
+    
     }
 
     .box {
         display: flex;
-        margin: 4%;
-        padding: 10px;
+     margin: 2%;
+     
         background-color: rgb(0, 0, 0);
         color: rgb(255, 255, 255);
         font-family: sans-serif;
         font-size: 15px;
-        text-align: center;
+        text-align:justify;
+        
     }
 
     .content-box {
         display: flex;
-        /* padding: 1%; */ 
+        /* padding: 1%; */
         /* margin: 1%; */
         justify-content: center;
+
+        width: 100%;
         color: rgb(255, 255, 255);
         background-color: rgb(0, 0, 0);
+    }
+
+    @media only screen and (max-width: 700px) {
+        .box {
+            /* margin: 2%; /* По-малко отстояние между параграфите */
+            /* padding: 15px; По-малко вътрешно запълване */ */
+        }
     }
 </style>

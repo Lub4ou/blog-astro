@@ -6,30 +6,37 @@ let counter = 0;
 
 <style>
     .latest {
-        width: 400;
-        height: 600px;
-        border: solid 20px #1f0d07;
+        flex-shrink: 0;
+        width: 419px;
+        height: 645px;
+        border: solid 20px black;
         border-radius: 20px;
-        background-color: #1f0d07;
+        background-color: black;
         overflow-y: scroll;
-        margin-right: 8%;
         margin-top: 5.8%;
     }
 
-    /* .latest-internal{
-     
-    margin-top: 30px;
-    width: 100vw;
-    display: flex;
+    .ad {
+        width: 300px;
+        height: 250px;
+        text-align: center;
+        border: 2px solid black;
+        margin-top: 5px;
+    }
+    .all {
+        display: flex;
+        flex-direction: column;
+    }
 
+    /* .latest img {
+        width: 371px;
+        height: 
+100.23px;
     } */
-
-
 </style>
 
-
-<div class="latest">
-    <div>
+<div class="all">
+    <div class="latest">
         <div class="latest-internal">
             {
                 articlesList.posts.data.map((item) => {
@@ -47,4 +54,5 @@ let counter = 0;
             }
         </div>
     </div>
+    <div class="ad"><p>Реклама</p></div>
 </div>
