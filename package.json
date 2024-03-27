@@ -13,6 +13,11 @@
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "astro": "^4.2.3",
+    "astro-icon": "^1.1.0",
     "marked": "^12.0.0"
+  },
+  "devDependencies": {
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/mdi": "^1.1.64"
   }
 }

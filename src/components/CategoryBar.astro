@@ -11,7 +11,7 @@ import { categoryList } from "../quearies/category.js";
     }
 
     .category-bar {
-        background-color: black;
+        background-color: #8F2607;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -35,6 +35,17 @@ import { categoryList } from "../quearies/category.js";
         background-color: #555;
         border-radius: 9%;
         font-size: 1.1em; Промяна на размера на шрифта
+    }
+
+    @media (max-width: 1000px) {
+        .category-bar {
+            flex-direction: row;
+          height:70px;
+          display: flex;
+        justify-content: :left;
+        align-items: :left;
+        color: #fff;
+        }
     }
 
 </style>

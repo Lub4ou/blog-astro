@@ -1,52 +1,142 @@
 ---
-import SingleArticle from "../components/SingleArticle.astro";
+import SingleArticleLastest from "./SingleArticleLastest.astro";
 import { articlesList } from "../quearies/articles.js";
 let counter = 0;
+
+
 ---
 
 <style>
     .latest {
         flex-shrink: 0;
-        width: 419px;
-        height: 645px;
-        border: solid 20px black;
+        width: 340px; /*440px*/
+        height: 650px;
+        border: solid 20px  #fce8c7;
         border-radius: 20px;
-        background-color: black;
+        background-color:  #fce8c7;
         overflow-y: scroll;
-        margin-top: 5.8%;
+        margin-top: 3%;
     }
 
     .ad {
         width: 300px;
         height: 250px;
         text-align: center;
-        border: 2px solid black;
-        margin-top: 5px;
+        background-color: #fce8c7;
+        border: 1px solid black;
+        border-radius: 10px;
+        align-items: center;
+      margin: 5% 0% 5% 10%;
     }
     .all {
         display: flex;
         flex-direction: column;
     }
+/* width */
+.latest::-webkit-scrollbar {
+  width: 10px;
+}
 
-    /* .latest img {
-        width: 371px;
-        height: 
-100.23px;
-    } */
+/* Track */
+.latest::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.latest::-webkit-scrollbar-thumb {
+  /* background: rgb(78, 74, 74);  */
+  background: #8F2607;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.latest::-webkit-scrollbar-thumb:hover {
+  background: rgb(31, 30, 30); 
+}
+
+    p {
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        margin-top: 2px;
+    }
+
+    h2 {
+        color: black;
+        text-align: center;
+        position:sticky;
+         /* z-index: 100;
+         top: 0%;
+         background-color:  #f8daa6;
+         width: 100%;
+         height: 40px; */
+    }
+
+    
+    /* @media (max-width: 1330px) {
+        .all {
+            display: flex;
+            flex-direction: column;
+            margin-top: 5%;
+            
+        }
+
+        .latest {
+        flex-shrink: 0;
+        width: 100%;
+        height: 600px;
+        border: solid 20px rgb(0, 0, 0);
+        border-radius: 20px;
+        background-color: black;
+        overflow-y: scroll;
+        margin-top: 5%;
+    }
+
+        .ad{
+            margin: 5% 0% 0% 5%;
+        }
+    }  */
+
+/* 
+    /* @media (max-width: 1000px) {
+        .all {
+            display: flex;
+            flex-direction: column;
+            margin-top: 5%;
+            
+        }
+
+        .latest{
+            width: 100%;
+            height: 500px;
+        }
+
+        .ad{
+            margin: 5% 0% 0% 5%;
+        }
+    }
+
+    @media (max-width: 400px) {
+
+    } */ */
+    
 </style>
 
 <div class="all">
     <div class="latest">
+            <h2>Последни статии</h2>
         <div class="latest-internal">
             {
                 articlesList.posts.data.map((item) => {
                     if (counter < 6) {
                         counter++;
                         return (
-                            <SingleArticle
+                            <SingleArticleLastest
                                 url={item.attributes.slug}
                                 image={item.attributes.image}
                                 name={item.attributes.name}
+                                category={item.attributes.categories.data}
                             />
                         );
                     }

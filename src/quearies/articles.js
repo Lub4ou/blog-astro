@@ -10,7 +10,7 @@ query {
         name
         content
         date
-        Category{
+        categories{
           data{
             attributes{
               name
@@ -21,7 +21,6 @@ query {
           data {
             attributes {
               url
-            
               alternativeText
             }
           }

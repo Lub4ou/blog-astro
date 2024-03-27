@@ -2,101 +2,147 @@
 import "@splidejs/splide/css";
 ---
 
-<section id="test" class="splide opinion_slide" aria-label="Splide Basic HTML Example">
-  <div class="splide__track">
-  <div class="userdiv"> <h2>Отзиви от потребителите</h2></div>
-    <ul class="splide__list">
-     
-      <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        <h3>Митка Бойчева</h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fuga
-        repellendus similique, eos inventore laudantium!.
-        <h3>Георги Аспарухов</h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit amet, consectetur adipisicing.
-        <h3>Никола Тодоров</h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere iure
-        mollitia maiores doloremque? Minima, porro ipsum?
-        <h3>Любомир Михайлов</h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dolorem
-        doloribus vitae eum eaque eius.
-        <h3>Кристиян Ненков</h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, quisquam
-        perspiciatis accusamus deleniti recusandae sed facere suscipit obcaecati
-        eligendi!
-        <h3>Васил Божков</h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum facilis
-        repudiandae similique nesciunt et quisquam sequi! Nihil, dolore?
-        <h3>Генади Христов
-        </h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
-        harum aut, odit odio totam est vitae veniam?
-        <h3>Кадир Бенков
-        </h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas error
-        harum aut, odit odio totam est vitae дадададададададада?
-        <h3>Цвети Василева
-        </h3>
-      </li>
-      <li class="splide__slide">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est ad fugiat
-        alias nostrum consequatur veritatis, deserunt dolores eligendi molestias
-        nihil natus. Blanditiis debitis perferendis quasi.
-        <h3>Албена Петрова
-        </h3>
-      </li>
-    </ul>
-  </div>
-</section>
-
 <style>
   .splide__track {
     color: rgb(0, 0, 0);
     /* background-color: #F5EEE2; */
-    border-top: 2px solid grey;
-    padding: 4%;
+    border-top: 2px solid #8F2607;
+    padding: 4px;
   }
 
   .splide__list {
     text-align: center;
-
   }
 
-  .userdiv{
+  .userdiv {
     text-align: center;
-    margin-bottom: 4%
-    ;
+    margin-bottom: 4px;
   }
 
+  @media (max-width: 1330px) {
+    .splide__slide {
+      border-left: 1px solid gray;
+    }
 
-  @media screen ( max-width: 1216px);
+    /* .all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.ad {
+    width: 300px;
+    height: 600px;
+    border: 2px solid black;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+} */
+  }
 </style>
 
 <script>
-  import Splide from "@splidejs/splide";
-  document.addEventListener("DOMContentLoaded", function () {
-    // let splide = new Splide(".splide");
+  // import Splide from "@splidejs/splide";
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   // let splide = new Splide(".splide");
+  //   let splide = new Splide(".opinion_slide", {
+  //     perPage: 3,
+  //     perMove: 1,
+  //   });
+  //   splide.mount();
+  // });
+
+
+   import { Splide } from "@splidejs/splide";
+    import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+
+    /* new Splide(".splide").mount({ AutoScroll }); */
+
     let splide = new Splide(".opinion_slide", {
-      perPage: 3,
-      perMove: 1,
+        
+        type: "loop",
+        drag: "free",
+        focus: "center",
+        perPage: 3,
+        autoScroll: {
+        speed: 0.5
+        },
     });
-    splide.mount();
-  });
+
+    splide.mount({ AutoScroll });
+
+    splide.on("resize", () => {
+        if (window.innerWidth > 1300) {
+            splide.options.perPage = 3.5;
+        } else if (window.innerWidth > 800) {
+            splide.options.perPage = 2.5;
+        } else if (window.innerWidth > 500) {
+            splide.options.perPage = 1.5;
+        } else {
+            splide.options.perPage = 1;
+        }
+    });
+
 </script>
+
+<section
+  id="test"
+  class="splide opinion_slide"
+  aria-label="Splide Basic HTML Example"
+>
+  <div class="splide__track">
+    <div class="userdiv"><h2>Отзиви от потребителите</h2></div>
+    <ul class="splide__list">
+      <li class="splide__slide">
+        Открих любимия си ресторант благодарение на този сайт! Вкусна храна и
+        отлично обслужване!
+        <h3>Митка Бойчева</h3>
+      </li>
+      <li class="splide__slide">
+        Сайтът е много удобен за резервации. Намерихме страхотен ресторант за
+        специален повод и всичко беше перфектно!
+        <h3>Георги Аспарухов</h3>
+      </li>
+      <li class="splide__slide">
+        Препоръчвам горещо този сайт! Намерихме скрит перлин за романтична
+        вечеря с половинката!
+        <h3>Никола Тодоров</h3>
+      </li>
+      <li class="splide__slide">
+        Благодарение на този сайт открих нови кулинарни изживявания. Всеки
+        ресторант, който опитахме, беше страхотен...
+        <h3>Любомир Михайлов</h3>
+      </li>
+      <li class="splide__slide">
+        Супер удобен сайт за бързо търсене на ресторанти в района. Винаги ни
+        помага да изберем къде да отидем на обяд или вечеря!
+        <h3>Кристиян Ненков</h3>
+      </li>
+      <li class="splide__slide">
+        Отличен източник за ресторантски преживявания! Винаги намирам нови и
+        интересни места за посещение.
+        <h3>Васил Божков</h3>
+      </li>
+      <li class="splide__slide">
+        Този сайт ми спести много време и главоболие при търсенето на подходящ
+        ресторант. Препоръчвам го на всички свои приятели!
+        <h3>Генади Христов</h3>
+      </li>
+      <li class="splide__slide">
+        Внимателно подбрани ресторанти и отзиви, които помагат за вземане на
+        правилното решение. Благодаря ви, че съществувате!
+        <h3>Кадир Бенков</h3>
+      </li>
+      <li class="splide__slide">
+        Невероятен сайт за любители на вкусната храна! Намерих много места,
+        които иначе нямаше да открия."
+        <h3>Цвети Василева</h3>
+      </li>
+      <li class="splide__slide">
+        Сайтът е невероятен ресурс за любителите на храната и добрите
+        ресторанти. Винаги успява да ме изненада с нови идеи за хранене!
+        <h3>Албена Петрова</h3>
+      </li>
+    </ul>
+  </div>
+</section>

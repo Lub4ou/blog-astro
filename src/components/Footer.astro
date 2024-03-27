@@ -5,6 +5,7 @@ import bgrestaurants from "../images/bgrestaurants.svg";
 import isnstagramLogo from "../images/instagramLogo.svg";
 import facebooklogo from "../images/facebooklogo.svg";
 import { categoryList } from "../quearies/category.js";
+import { Icon } from "astro-icon/components";
 ---
 
 <!-- <footer>
@@ -110,14 +111,30 @@ import { categoryList } from "../quearies/category.js";
     font-family: Arial, sans-serif;
   }
 
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .privacy-policy:hover {
+    background-color: #555;
+    border-radius: 2%;
+    font-size: 1.0em; Промяна на размера на шрифта
+  }
+  
+  .category-button:hover {
+        background-color: #555;
+        border-radius: 2%;
+        font-size: 1.1em; Промяна на размера на шрифта
+    }
   footer {
     /* background: linear-gradient(180deg, #F5EEE2 0%, #e3e4e6 100%); */
     color: white;
-    background-color: #F5EEE2;
+    background-color: #f5eee2;
     padding: 1px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    border-top: 2px solid black;
+    border-top: 2px solid #8F2607;
   }
 
   footer ul {
@@ -127,11 +144,10 @@ import { categoryList } from "../quearies/category.js";
   }
 
   .column {
-    padding: 10px;
   }
 
   .footerHeading {
-    color: #9ca5b4;
+    color: #8F2607;
     font-weight: bolder;
     font-size: large;
   }
@@ -140,31 +156,39 @@ import { categoryList } from "../quearies/category.js";
     display: flex;
     flex-direction: column; /* Променено от "row" на "column" */
     justify-content: center;
-    margin: 1%;
     font-size: 100%;
   }
 
+
   .centered-img {
-    display: grid;   /*Logo layout*/
+    display: grid; /*Logo layout*/
     justify-content: start;
     align-items: center;
+    margin: auto auto auto 10%;
   }
-
-  .category-button{
+  .category-button {
     text-decoration: none;
     color: #000000;
+    width: 50%;
+  }
+
+  img {
+    width: 90px;
+    height: auto;
+  }
+
+  .bgrest-img {
+    width: 100px;
+    height: auto;
+    margin: 0% 0% 0% 100%;
   }
 
   .rights {
     display: flex;
-    text-align:bottom;
-    margin: 13%;
-    font-size: 50%;
-    position: absolute;
-    /* bottom: 130%;                       /towa se mesti/ */
-    left:4%;
-    transform: translateX(-50%);
-    /* background-color: #F5EEE2; */
+    justify-content: space-around;
+    font-size: 100%;
+    background-color: #f5eee2;
+    color: #8F2607;
   }
 
   @media screen and (max-width: 670px) {
@@ -186,14 +210,24 @@ import { categoryList } from "../quearies/category.js";
       height: 68px;
     }
   }
+
+  [data-icon] {
+    color: black;
+    
+  }
 </style>
 
 <footer>
   <div class="column centered-img">
-    <a href="/" >
-      <Image src={bgrestaurants} alt="logo" width="374" height="68" />
+    <a href="/">
+      <Image
+        class="bgrest-img"
+        src={bgrestaurants}
+        alt="logo"
+        width="374"
+        height="68"
+      />
     </a>
-   
   </div>
 
   <div class="footer-categories">
@@ -214,16 +248,18 @@ import { categoryList } from "../quearies/category.js";
     <p class="footerHeading">Полезни връзки</p>
     <ul>
       <li>0878887559</li>
-      <li>Политика за поверителност</li>
+      <a class="privacy-policy" href=" http://localhost:4322/privacypolicy"
+        >Политика за поверителност</a
+      >
     </ul>
     <a href="https://www.instagram.com/" target="_blank">
-      <Image src={isnstagramLogo} alt="logo" width="50" height="50" />
+      <Icon name="mdi:instagram" size={40} />
     </a>
-   <a href="https://www.facebook.com/" target="_blank">
-    <Image src={facebooklogo} alt="logo" width="40" height="50" />
-  </a>
+    <a href="https://www.facebook.com/" target="_blank">
+      <Icon name="ic:baseline-facebook" size={40} />
+    </a>
   </div>
-
-
-
 </footer>
+<div class="rights">
+  <p>Ⓒ 2024 All rights reserved. Created by Lub4o</p>
+</div>

@@ -7,7 +7,10 @@ import BlackBar from "../components/BlackBar.astro";
 import Higlihts from "../components/Higlithts.astro";
 import Lastest from "../components/Lastest.astro";
 import DownCategoryBox from "../components/DownCategoryBox.astro";
+import NewsLetter from "../components/NewsLetter.astro";
 import InfinityHorizontalSlider from "../components/InfinityHorizontalSlider.astro";
+import { Icon } from 'astro-icon/components';
+
 ---
 
 <meta charset="utf-8" />
@@ -23,17 +26,44 @@ import InfinityHorizontalSlider from "../components/InfinityHorizontalSlider.ast
         gap: 20px;
         margin-top: 3%;
     }
+
+    .down-category-body{
+      /* display: flex;
+      margin: 20px auto;
+      justify-content: center; */
+
+      display: grid;
+grid-template-columns: 1fr 60% auto 1fr;
+gap: 50px;
+
+    }
+
+    @media (max-width: 1330px) {
+        .latest-body {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .down-category-body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 </style>
 
 <DefaultLayout>
-	
-	<InfinityHorizontalSlider />
-	<div class="latest-body">
+    <InfinityHorizontalSlider />
+    <div class="latest-body">
         <Higlihts />
         <Lastest />
     </div>
-	<DownCategoryBox />
-	<OpinionSlider/>
-    <BlackBar/>
-	<SEOcontent/>
+    <div class="down-category-body">
+        <DownCategoryBox />
+        <!-- <NewsLetter/> -->
+    </div>
+    <OpinionSlider />
+    <BlackBar />
+    <SEOcontent />
 </DefaultLayout>
+

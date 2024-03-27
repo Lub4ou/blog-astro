@@ -1,7 +1,7 @@
 ---
 import SingleArticle from "./SingleArticle.astro";
 import { articlesList } from "../quearies/articles";
-
+import SingleArticleSlider from "./SingleArticleSlider.astro";
 import "@splidejs/splide/css";
 ---
 
@@ -28,7 +28,7 @@ import "@splidejs/splide/css";
 
     /* new Splide(".splide").mount({ AutoScroll }); */
 
-    const splide = new Splide(".splide-inf", {
+    let splide = new Splide(".splide-inf", {
         
         type: "loop",
         drag: "free",
@@ -40,6 +40,19 @@ import "@splidejs/splide/css";
     });
 
     splide.mount({ AutoScroll });
+
+    splide.on("resize", () => {
+        if (window.innerWidth > 1300) {
+            splide.options.perPage = 3.5;
+        } else if (window.innerWidth > 800) {
+            splide.options.perPage = 2.5;
+        } else if (window.innerWidth > 500) {
+            splide.options.perPage = 1.5;
+        } else {
+            splide.options.perPage = 1;
+        }
+    });
+
 </script>
 
 <section class="splide infinity_slide splide-inf">
@@ -49,7 +62,7 @@ import "@splidejs/splide/css";
                 articlesList.posts.data.map((item) => {
                     return (
                         <li class="splide__slide">
-                            <SingleArticle
+                            <SingleArticleSlider
                                 url={item.attributes.slug}
                                 image={item.attributes.image}
                                 name={item.attributes.name}

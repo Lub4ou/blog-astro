@@ -23,7 +23,7 @@ const articleData = Astro.props;
     justify-content: center;
   }
   .image-wrapper{
-    max-width: 35% ;900px
+    max-width: 450px ;900px
     max-height: auto ;500px
   }
 
@@ -56,30 +56,35 @@ display: grid;
 grid-template-columns: 20% 1fr 25%;
   margin-bottom: 3%;
   margin-left:2px ;
+
 }
 @media screen and (max-width: 1300px) {
   .content{
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 40px 20px auto 20px;
     align-items: center;
     max-width: 1300px;
   }
 }
 .left-placeholder{
+ 
 }
 
 .right-placeholder{
+  width: 50%;
 }
 
 .text-space img{
   object-fit: cover;
-  width: auto;
-  height: 100%;
-  background-color:#F5EEE2;
-  border-radius: %;
+  width: 100%;
+  height: auto;
   margin-top: 2%;
   padding: 2%;
+}
+
+.text-space{
+  background-color: #F5EEE2;
 }
 
 .lastest{
@@ -104,8 +109,17 @@ grid-template-columns: 20% 1fr 25%;
       />
     </div>
     <div class="post-information">
-      <p>Категория: {articleData.Category.data.attributes.name}</p>
+      <!-- <p>Категория: {articleData.Category.data.attributes.name}</p> -->
       <h1>{articleData.name}</h1>
+      <p>Категория: </p>
+      {
+        articleData.categories.data.map((item) => {
+            console.log(item);
+            return <p>{item.attributes.name}</p>;
+            // return 1;
+          })
+        }
+
       <p>Дата на публикуване:  {articleData.date}</p>
       
     </div>

@@ -1,44 +1,53 @@
 ---
-import SingleArticle from "../components/SingleArticle.astro";
+import SingleArticleHiglihts from "./SingleArticleHiglights.astro";
 import { articlesList } from "../quearies/articles";
 let counter = 0;
 ---
 
 <style>
     .article-higlithts {
-        /* width: 10%; */
         display: grid;
-        width: 900px;
-        height: 800px;
+        max-width: 900px;
+        height: auto;
         grid-template-columns: repeat(2, 2fr);
         grid-template-rows: repeat(3, auto);
-        /* margin-left: 13%; */
         justify-items: center;
-        gap: 8px;
+        gap: 15px;
+
     }
 
+  
 
 
     .higliht {
-        margin-top: 20px;
-        /* display: flex; */
-        /* margin-right: 10%; */
+        margin-top: 10px;
+        background-color: #fce8c7;
+        border-radius: 10px;
+        border: 15px solid #fce8c7;
+    
     }
 
     .line {
-        border-bottom: solid 3px black;
+        border-bottom: solid 3px #8F2607;
         margin-bottom: 3%;
         padding: 1%;
+    }
+    
+  @media (max-width: 1000px) {
+        .article-higlithts {
+            grid-template-columns: 1fr; /* Променяме броя колони на една при определена ширина */
+            grid-template-rows: repeat(6, auto); /* Променяме броя редове на шест при определена ширина */
+        }
     }
 </style>
 
 
 <div class="higliht">
-    <div>
+    <!-- <div> -->
         <div class="line">
             <p>Акценти</p>
         </div>
-    </div>
+    <!-- </div> -->
     <div class="article-higlithts">
         {
             articlesList.posts.data.map((item) => {
@@ -46,10 +55,11 @@ let counter = 0;
                     counter++;
                     return (
                         <div class="article-item">
-                            <SingleArticle
+                            <SingleArticleHiglihts
                                 url={item.attributes.slug}
                                 image={item.attributes.image}
                                 name={item.attributes.name}
+                                category={item.attributes.categories.data}
                             />
                         </div>
                     );

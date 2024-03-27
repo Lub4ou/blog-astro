@@ -1,0 +1,77 @@
+---
+
+---
+
+<style>
+    .newsletter {
+        background-color: black;
+        max-width: 360px;
+        height: 350px;
+        border-radius: 8%;
+        margin: 150px auto;
+        grid-area: 1 / 3 / 2 / 4;
+    }
+
+    h2 {
+        color: aliceblue;
+        text-align: center;
+    }
+
+    p {
+        color: aliceblue;
+
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .text-box {
+        width: 237px;
+        height: 43.38px;
+        border-radius: 10px;
+        margin-left: 15%;
+        margin-top: 10%;
+    }
+
+    .button {
+        width: 145px;
+        height: 43.38px;
+        border-radius: 10px;
+        background-color: gray;
+        color: white;
+        font-size: 13px;
+        margin-left: 30%;
+        margin-top: 10%;
+    }
+
+    .button:hover {
+    background-color: #8F2607;
+    border-radius: 10px;
+    /* font-size: 1.0em; Промяна на размера на шрифта */
+  }
+
+    @media (max-width: 1330px) {
+        .newsletter {
+            margin: 20px auto;
+        }
+    }
+</style>
+
+<div class="newsletter">
+    <h2>Призив за News Letter</h2>
+    <p>Абонирай се за нашия информационен бюлетин</p>
+
+    <input
+        class="text-box"
+        type="text"
+        id="Name"
+        name="Name"
+        placeholder="Въведете валиден e-mail"
+    />
+
+    <button
+        class="button"
+        type="button"
+        onclick="alert('ТИ СИ ГЕЙ!ТИ СИ ГЕЙ!ТИ СИ ГЕЙ!ТИ СИ ГЕЙ!ТИ СИ ГЕЙ!ТИ СИ ГЕЙ!ТИ СИ ГЕЙ!ТИ СИ ГЕЙ!')"
+        >ИЗПРАЩАНЕ
+    </button>
+</div>

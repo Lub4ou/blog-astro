@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+
+const { url, image, name, Category } = Astro.props;
+---
+
+<style>
+    a {
+        position: relative;
+    }
+
+    h2 {
+        z-index: 4;
+        position: absolute;
+        bottom: 0;
+        left: 1;
+        color: black;
+        margin-left: 4%;
+
+
+        color: rgb(0, 0, 0);с
+        margin: 0% auto 5% 5%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .image-wrapper {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5%;
+        overflow: hidden;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    /* .blur {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%
+;
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.6519782913165266) 22%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        background-size: cover;
+        border-radius: 10px;
+    } */
+
+    .content-wrapper{
+        display: flex;
+        border: 15px solid white;
+        border-radius: 10px;
+        width: 90%;
+        height: 270px;
+        background-color: white;
+        
+        
+    }
+</style>
+<a href={`/blog/${url}`}>
+    <div style="position: relative;">
+        <h2>{name}</h2>
+        <h2>{Category}</h2>
+        <div class="content-wrapper">
+            <div class="image-wrapper">
+                <div class="blur">
+
+                    <Image
+                    src={image.data.attributes.url}
+                    alt={image.data.attributes.alternativeText || "Ресторанти"}
+                    width="200"
+                    height="200"
+                    />
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

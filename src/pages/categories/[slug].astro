@@ -4,7 +4,7 @@ import { articlesList } from "../../quearies/articles.js";
 import { categoryList } from "../../quearies/category.js";
 import { Image } from "astro:assets";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
-import SingleArticle from "../../components/SingleArticle.astro";
+import SingleArticleCategory from "../../components/SingleArticleCategories.astro";
 import Lastest from "../../components/Lastest.astro";
 
 export const getStaticPaths = (async () => {
@@ -25,12 +25,12 @@ const articlesArray = categoryData.posts.data.map((item) => item.id);
     grid-template-columns: repeat(
       3,
       1fr
-    ); /* Поставяме по три компонента на ред */
-    gap: 20px; /* Добавяме разстояние между компонентите */
-    padding: 20px; /* Добавяме отстъп от ръбовете на контейнера */
+    ); 
+    gap: 20px; 
+    padding: 20px; 
     width: 40%;
 grid-template-rows: fit-content(10px);
-    margin: 0 auto; /* Центрираме грида */
+    margin: 0 auto; 
   }
 
  
@@ -43,7 +43,7 @@ grid-template-rows: fit-content(10px);
     color: black;
     border-bottom: solid 3px black;
     margin-top: 20px;
-    width: 50%;
+    width: 100%;
   }
 
   .line-layout {
@@ -54,17 +54,17 @@ grid-template-rows: fit-content(10px);
   .Lastest-div{
     width: 20%;
     order: 2;
-    margin-bottom: 4%;
+    margin:0% 5% 5% 0%;
   }
 
   .grid-div{
-    display: flex; /* Показваме децата на грида във flex контейнер */
-    justify-content: space-between; /* Разполагаме децата с равно разстояние между тях */
+    display: flex; 
+    /* justify-content: space-between;  */
 
   }
   .content-grid{
     width: 50%;
-    margin-left: 24%;
+  
   }
 
 </style>
@@ -91,7 +91,7 @@ grid-template-rows: fit-content(10px);
         articlesList.posts.data.map((item) => {
           if (articlesArray.includes(item.id)) {
             return (
-              <SingleArticle
+              <SingleArticleCategory
               url={item.attributes.slug}
               image={item.attributes.image}
               name={item.attributes.name}
